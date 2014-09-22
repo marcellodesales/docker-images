@@ -13,7 +13,7 @@ RUN apt-get install -y wget curl git git-core build-essential \
 
 RUN wget -O ruby-2.1.2.tar.gz http://ftp.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz && \
     tar -xzf ruby-2.1.2.tar.gz && rm -rf ruby-2.1.2.tar.gz
-RUN cd ruby-2.1.2/ && ./configure && make && make install && rm -rf ruby-2.1.2/
+RUN cd ruby-2.1.2/ && ./configure && make && make install && cd .. && rm -rf ruby-2.1.2/
 
 RUN echo "gem: --no-ri --no-rdoc" > ~/.gemrc
 RUN gem install bundler
